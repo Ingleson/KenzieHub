@@ -42,9 +42,9 @@ const Login = () => {
       window.localStorage.setItem('@token', response.data.token);
       window.localStorage.setItem('@id', response.data.user.id);
       navigate('/home', {replace: true});
+      toast.success('Acesso autorizado')
     })
-    .catch(err => 
-      console.log(err),
+    .catch(() => 
       toast.error('Email ou/e senha incorreto!')
     );
   };
