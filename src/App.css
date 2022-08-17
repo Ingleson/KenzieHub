@@ -13,11 +13,11 @@ button {
 }
 
 ul::-webkit-scrollbar {
-  width: 15px;               
+  width: 15px;         
 }
 
 ul::-webkit-scrollbar-track {
-  background: #212529;        
+  background: #212529;      
 }
 
 ul::-webkit-scrollbar-thumb {

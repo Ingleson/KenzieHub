@@ -28,7 +28,7 @@ function Home(){
 
         <main>
           {techs.length <= 0 ?
-          <div>div
+          <div>
             <h2>Loading ...</h2>
             
           </div>  
@@ -49,9 +49,7 @@ function Home(){
                 </li>
               ))}
             </ul>
-          </SectionTech>
-        }
-          
+          </SectionTech>}
         </main>
       </BaseHome>
     </div>

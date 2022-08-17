@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import "animate.css";
 
 export const BaseLogin = styled.section`
 
@@ -10,6 +11,8 @@ export const BaseLogin = styled.section`
   height: 100vh;
 
   background-color: #121212;
+
+  animation: fadeIn 2s;
 
   h2{
     color: #ff577f;
@@ -65,7 +68,7 @@ export const NoFormBox = styled.main`
       background-color: #ff577f;
       color: #f8f9fa;
       
-      margin: 15px 0 0 10px;
+      margin: 15px 0 0 0;
       padding: 10px 100px;
 
       border: none;
@@ -82,9 +85,9 @@ export const NoFormBox = styled.main`
   button {
     background-color: #868E96;
     color: #f8f9fa;
+    width: 100%;
 
     padding: 10px 0;
-    margin-left: 10px;
 
     border: none;
     border-radius: 3px;
