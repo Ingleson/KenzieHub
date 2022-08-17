@@ -1,47 +1,60 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import api from "../../services/api";
-import { BaseHome } from "./style";
+import { useContext } from "react";
+import ModalAdd from "../../components/ModalAdd";
+import { UserContext } from "../../contexts/userContext";
+import { BaseHome, HeadList, SectionTech } from "./style";
+import { BsFillTrashFill } from 'react-icons/bs'
 
 function Home(){
 
-  const [infoUser, setInfoUser] = useState([]);
-
-  useEffect(() => {
-    api.defaults.headers.authorization = `bearer ${localStorage.getItem('@token')}`
-    api.get("/profile").then(response => setInfoUser(response.data)).catch(err => console.log(err))
-  }, [])
-
-  const navigate = useNavigate();
-
-  const logout = () => {
-    localStorage.clear()
-    navigate('/', {replace: true});
-  }
+  const {infoUser, logout, techs, buttonModalAdd, showModalAdd} = useContext(UserContext);
 
   return(
-    <BaseHome>
-      <header>
-        <div>
-          <h2>Kenzie Hub</h2>
-          <button onClick={logout}>Sair</button>
-        </div>
-      </header>
+    <div>
+      {showModalAdd && <ModalAdd/>}
+      <BaseHome>
+        <header>
+          <div className="div-header">
+            <h2>Kenzie Hub</h2>
+            <button onClick={logout}>Sair</button>
+          </div>
+        </header>
 
-      <article>
-        <div>
-          <h2>Olá, {infoUser.name}</h2>
-          <span>{infoUser.course_module}</span>
-        </div>
-      </article>
+        <article className="article">
+          <div className="status-profile">
+            <h2>Olá, {infoUser.name}</h2>
+            <span>{infoUser.course_module}</span>
+          </div>
+        </article>
 
-      <main>
-        <div>
-          <h2>Que pena! Estamos em desenvolvimento  :(</h2>
-          <span>Nossa aplicação está em desenvolvimento, em breve teremos novidade</span>
-        </div>
-      </main>
-    </BaseHome>
+        <main>
+          {techs.length <= 0 ?
+          <div>div
+            <h2>Loading ...</h2>
+            
+          </div>  
+          :
+          <SectionTech>
+            <HeadList>
+              <h3>Tecnologias</h3>
+              <button onClick={buttonModalAdd}>+</button>
+            </HeadList>
+            <ul>
+              {techs.map(({id, title, status}) => (
+                <li key={id}>
+                  <h3>{title}</h3>
+                  <div>
+                    <span>{status}</span>
+                    <button><BsFillTrashFill/></button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </SectionTech>
+        }
+          
+        </main>
+      </BaseHome>
+    </div>
   )
 }
 

@@ -1,6 +1,27 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
+  background-color: #121214;
+  color: #f8f9fa;
+  height: 100vh;
 }
 button {
   cursor: pointer;
+}
+
+ul::-webkit-scrollbar {
+  width: 15px;               
+}
+
+ul::-webkit-scrollbar-track {
+  background: #212529;        
+}
+
+ul::-webkit-scrollbar-thumb {
+  background-color: #121214;   
+  border-radius: 20px;       
+  border: 3px solid #212529;  
 }

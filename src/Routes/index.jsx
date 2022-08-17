@@ -4,7 +4,6 @@ import Register from '../pages/Register';
 
 import {Routes, Route} from 'react-router-dom';
 
-
 const KenzieRoutes = () => {
   return (
       <Routes>
