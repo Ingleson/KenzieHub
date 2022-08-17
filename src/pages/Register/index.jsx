@@ -1,14 +1,14 @@
 import * as yup from 'yup';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import { useEffect } from 'react';
-import { toast } from 'react-toastify';
+import { useContext, useEffect } from 'react';
 
 import { BaseRegisterStyled, FormStyled, LogoButton } from './style';
+import { UserContext } from '../../contexts/userContext';
 
 function Register() {
+
+  const {navigate, onSubmitRegister, redirectToLogin} = useContext(UserContext);
 
   const formSchema = yup.object().shape({
     name: yup.string().required('Nome obrigatório'),
@@ -27,8 +27,6 @@ function Register() {
     }
   });
 
-  const navigate = useNavigate();
-
   const {
     register,
     handleSubmit,
@@ -37,37 +35,18 @@ function Register() {
     resolver: yupResolver(formSchema)
   });
 
-  const onSubmitFunction = (data) => {
-    axios.post('https://kenziehub.herokuapp.com/users', data)
-    .then(response => {
-      toast.success('Conta criada com sucesso!')
-      console.log(response.data);
-      setTimeout(() => {
-        navigate('/', {replace: true});
-      }, 3000)
-    })
-    .catch(err => 
-      console.log(err),
-      toast.error('Ops, algo deu errado')
-      );
-  };
-
-  const redirection = () => {
-    navigate('/', {replace: true});
-  };
-
   return(
 
     <BaseRegisterStyled>
       <LogoButton>
         <h2>Kenzie Hub</h2> 
-        <button onClick={redirection}>Voltar</button>
+        <button onClick={redirectToLogin}>Voltar</button>
       </LogoButton>
       <main>
         <h3>Crie sua conta</h3>
         <span>rápido e grátis, vamos nessa</span>
 
-        <FormStyled onSubmit={handleSubmit(onSubmitFunction)}>
+        <FormStyled onSubmit={handleSubmit(onSubmitRegister)}>
           <div>
             <label htmlFor="name">Name</label>
             <input type="text" 

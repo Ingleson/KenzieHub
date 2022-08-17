@@ -15,9 +15,7 @@ useEffect(() => {
 
 return (
     <div className='App'>
-      <>
-      <KenzieRoutes/>
-      </>
+      <KenzieRoutes/> 
     </div>
 );
 }
