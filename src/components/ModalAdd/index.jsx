@@ -50,7 +50,7 @@ function ModalAdd() {
             </select>
           </div>
 
-          <button type='submit' onClick={buttonModalAdd}>Cadastrar Tecnologia</button>
+          <button type="submit">Cadastrar Tecnologia</button>
         </form>
       </section>
     </EditModal>  

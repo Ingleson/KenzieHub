@@ -1,16 +1,17 @@
 import styled from "styled-components";
+import "animate.css";
 
 export const BaseHome = styled.div`
 
   background-color: #121214;
   color: #f8f9fa;
+  animation: fadeIn 2s;
 
   width: 100%;
   height: 100%;
 
   header {
     height: 70px;
-
     div {
       display: flex;
       margin: 0 auto;
@@ -30,6 +31,7 @@ export const BaseHome = styled.div`
 
         border: none;
         border-radius: 5px;
+
       }
     }
   }

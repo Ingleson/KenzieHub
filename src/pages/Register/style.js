@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import "animate.css"
 
 export const BaseRegisterStyled = styled.div`
 
@@ -11,11 +12,13 @@ export const BaseRegisterStyled = styled.div`
 
   background-color: #121212;
 
+  animation: fadeIn 2s;
+
   main {
     display: flex;
     flex-direction: column;
 
-    min-width: 260px;
+    min-width: 350px;
 
     margin: 0 auto;
     padding: 20px 40px;
@@ -38,6 +41,7 @@ export const FormStyled = styled.form`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    
 
     label {
       padding: 10px 0;
@@ -55,7 +59,7 @@ export const FormStyled = styled.form`
       padding: 10px 0 10px 5px;
     }
     select {
-      width: 102%;
+      width: 100%;
 
       border: none;
       border-radius: 3px;
@@ -72,7 +76,7 @@ export const FormStyled = styled.form`
   }
 
   button {
-    width: 102.5%;
+    width: 100%;
     
     background-color: #59323F;
     color: #f8f9fa;
@@ -81,7 +85,7 @@ export const FormStyled = styled.form`
     border-radius: 3px;
 
     margin-top: 15px;
-    padding: 10px;
+    padding: 10px 0;
   }
 `
 
