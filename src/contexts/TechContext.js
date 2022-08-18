@@ -9,12 +9,15 @@ export const TechContext = createContext({});
 
 function TechComponent({children}) {
 
-  const {techs, setTechs} = useContext(UserContext);
+  const {techs, setTechs, buttonModalAdd} = useContext(UserContext);
 
   const addTech = async (data) => {
     
     await api.post("users/techs", data)
-    .then(res => setTechs([...techs, res.data]), toast.success("Tecnologia adicionada"))
+    .then(res => {setTechs([...techs, res.data])
+      toast.success("Tecnologia adicionada")
+      buttonModalAdd()
+    })
     .catch((err) => console.log(err))
   }
 

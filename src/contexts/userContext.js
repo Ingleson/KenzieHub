@@ -9,6 +9,9 @@ export const UserContext = createContext({});
 
 function Providers({ children }) {
 
+  const [infoUser, setInfoUser] = useState([]);
+  const [techs, setTechs] = useState([]);
+
   const navigate = useNavigate();
 
 //Login
@@ -19,6 +22,8 @@ function Providers({ children }) {
       // localStorage.clear();
       localStorage.setItem('@token', response.data.token);
       localStorage.setItem('@id', response.data.user.id);
+      setInfoUser(response.data.user)
+      setTechs(response.data.user.techs)
       navigate('/home', {replace: true});
     })
     .catch(() => 
@@ -56,19 +61,16 @@ function Providers({ children }) {
 
 //Dashboard
 
-  const [infoUser, setInfoUser] = useState([]);
-  const [techs, setTechs] = useState([]);
-
   useEffect(() => {
     if(localStorage.getItem('@token') && localStorage.getItem('@id')) {
       api.defaults.headers.Authorization = `bearer ${localStorage.getItem("@token")}`
       api.get("/profile").then(response => {setInfoUser(response.data)
       setTechs(response.data.techs)
+      navigate('/home', {replace: true})
     })
       .catch(() => localStorage.clear())
-      
     }
-  }, [])
+  },)
   const logout = () => {
       localStorage.clear()
       navigate('/', {replace: true});
@@ -81,6 +83,8 @@ function Providers({ children }) {
   const buttonModalAdd = () => {
     setShowModalAdd(!showModalAdd);
   }
+
+  //ModalAdd
   
 
 //Dashboard
