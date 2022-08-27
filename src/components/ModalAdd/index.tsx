@@ -5,6 +5,7 @@ import { EditModal } from './style';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/userContext';
 import { TechContext } from '../../contexts/TechContext';
+import { IDataForm } from '../../contexts/TechContext';
 
 
 function ModalAdd() {
@@ -19,7 +20,7 @@ function ModalAdd() {
     register,
     handleSubmit,
     formState: {errors},
-  } = useForm({
+  } = useForm<IDataForm>({
     resolver: yupResolver(formSchema)
   })
 
@@ -32,13 +33,13 @@ function ModalAdd() {
         </div>
         <form onSubmit={handleSubmit(addTech)}>
           <div>
-            <label htmlFor="name">Nome</label>
+            <label htmlFor="title">Nome</label>
             <input type="text" 
             placeholder="Adicione sua tecnologia"
-            id="name"
+            id="title"
             {...register("title")}
             />
-            <span>{errors.name?.message}</span>
+            <span>{errors.title?.message}</span>
           </div>
 
           <div>

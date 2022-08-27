@@ -22,6 +22,49 @@ export const BaseHome = styled.div`
 
       h2 {
         color: #ff577f;
+        background: linear-gradient(
+          270deg,
+          #DF2935,
+          #3772FF,
+          #54E8C9,
+          #0A014F,
+          #466995,
+          #F58F29,
+          #462255,
+          #93E1D8,
+          #AA4465,
+          #FFA69E,
+          #DF2935
+        );
+        background-size: 600% 600%;
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-animation: AnimationName 5s ease infinite;
+        animation: AnimationName 5s ease infinite;
+        }
+        @-webkit-keyframes AnimationName {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        @keyframes AnimationName {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
       }
       button {
         padding: 10px 15px;
@@ -34,7 +77,7 @@ export const BaseHome = styled.div`
 
       }
     }
-  }
+  
   article{
     display: flex;
     align-items: center;
@@ -52,6 +95,49 @@ export const BaseHome = styled.div`
 
       h2 {
         font-size: 25px;
+        background: linear-gradient(
+          270deg,
+          #DF2935,
+          #3772FF,
+          #54E8C9,
+          #0A014F,
+          #466995,
+          #F58F29,
+          #462255,
+          #93E1D8,
+          #AA4465,
+          #FFA69E,
+          #DF2935
+        );
+        background-size: 600% 600%;
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-animation: AnimationName 5s ease infinite;
+        animation: AnimationName 5s ease infinite;
+        }
+        @-webkit-keyframes AnimationName {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        }
+        @keyframes AnimationName {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
+          }
+        
       }
       span {
         font-size: 13px;
@@ -69,6 +155,7 @@ export const BaseHome = styled.div`
 
     h2 {
       font-size: 25px;
+      
     }
   }
 
@@ -127,6 +214,8 @@ export const SectionTech = styled.section`
       cursor: pointer;
     }
     li {
+      animation: bounceInRight 3s;
+
       list-style: none;
 
       width: 100%;
@@ -154,10 +243,13 @@ export const SectionTech = styled.section`
           background-color: transparent;
           color: #fff;
           
-          border: none;
+          border: none;  
 
-          
+          :hover {
+            animation: bounceIn 1s;
+          }
         }
+
         @media screen and (max-width: 500px){
           display: flex;
           justify-content: flex-end;

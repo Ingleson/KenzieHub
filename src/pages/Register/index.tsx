@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useContext, useEffect } from 'react';
 
 import { BaseRegisterStyled, FormStyled, LogoButton } from './style';
-import { UserContext } from '../../contexts/userContext';
+import { IUserRegister, UserContext } from '../../contexts/userContext';
 
 function Register() {
 
@@ -31,7 +31,7 @@ function Register() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<IUserRegister>({
     resolver: yupResolver(formSchema)
   });
 
@@ -80,7 +80,7 @@ function Register() {
             placeholder='Digite novamente sua senha' 
             id='confirmPassword'
             {...register('confirmPassword')}/>
-            <span>{errors.confirmPassowrd?.message}</span>
+            <span>{errors.confirmPassword?.message}</span>
           </div>
 
           <div>

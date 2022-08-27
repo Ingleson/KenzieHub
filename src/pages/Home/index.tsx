@@ -3,10 +3,13 @@ import ModalAdd from "../../components/ModalAdd";
 import { UserContext } from "../../contexts/userContext";
 import { BaseHome, HeadList, SectionTech } from "./style";
 import { BsFillTrashFill } from 'react-icons/bs'
+import { TechContext } from "../../contexts/TechContext";
+import { ITechs } from "../../contexts/userContext";
 
 function Home(){
 
   const {infoUser, logout, techs, buttonModalAdd, showModalAdd} = useContext(UserContext);
+  const {deleteTech} = useContext(TechContext)
 
   return(
     <div>
@@ -28,10 +31,10 @@ function Home(){
 
         <main>
           {techs.length <= 0 ?
-          <div>
-            <h2>Loading ...</h2>
-            
-          </div>  
+          <HeadList>
+            <h3>Tecnologias</h3>
+            <button onClick={buttonModalAdd}>+</button>
+          </HeadList> 
           :
           <SectionTech>
             <HeadList>
@@ -39,12 +42,12 @@ function Home(){
               <button onClick={buttonModalAdd}>+</button>
             </HeadList>
             <ul>
-              {techs.map(({id, title, status}) => (
+              {techs?.map(({id, title, status}: ITechs) => (
                 <li key={id}>
                   <h3>{title}</h3>
                   <div>
                     <span>{status}</span>
-                    <button><BsFillTrashFill/></button>
+                    <button onClick={() => deleteTech(id)}><BsFillTrashFill/></button>
                   </div>
                 </li>
               ))}

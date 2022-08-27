@@ -4,7 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useContext, useEffect } from 'react';
 
 import { BaseLogin, NoFormBox } from './style';
-import { UserContext } from '../../contexts/userContext';
+import { IUserLogin, UserContext } from '../../contexts/userContext';
 
 
 const Login = () => {
@@ -20,7 +20,7 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<IUserLogin>({
     resolver: yupResolver(formSchema)
   });
 

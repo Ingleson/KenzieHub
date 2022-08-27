@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import Providers from './contexts/userContext';
 import TechComponent from './contexts/TechContext';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
     <BrowserRouter>

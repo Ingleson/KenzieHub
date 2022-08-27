@@ -2,7 +2,7 @@ import styled from "styled-components";
 import "animate.css"
 
 export const EditModal = styled.div`
-
+  z-index: 4;
   position: fixed;
   display: flex;
   align-items: center;
@@ -12,9 +12,9 @@ export const EditModal = styled.div`
   height: 100vh;
   background-color: rgba(0,0,0,.25);
 
-  animation: fadeIn 2s;
-
   section {
+    animation: zoomIn 1s;
+
     width: 100%;
     max-width: 400px;
 
@@ -66,10 +66,14 @@ export const EditModal = styled.div`
           padding: 15px 0 15px 5px ;
 
           background-color: #343B41;
+          color: #f8f9fa;
           border: 1px solid #f8f9fa;
           border-radius: 4px;
 
           font-size: 16px;
+        }
+        input::placeholder {
+          color: #f8f9fa;
         }
         select {
           width: 100%;
