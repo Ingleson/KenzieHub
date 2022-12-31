@@ -66,6 +66,7 @@ export const EditModal = styled.div`
           padding: 15px 0 15px 5px ;
 
           background-color: #343B41;
+          color: #f8f9fa;
           border: 1px solid #f8f9fa;
           border-radius: 4px;
 
