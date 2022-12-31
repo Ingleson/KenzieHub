@@ -103,7 +103,14 @@ export const SectionTech = styled.section`
 
   width: 100%;
 
-  
+  .void-box {
+    font-size: 49px;
+    color: #343B41;
+
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
 
   ul {
     display: flex;

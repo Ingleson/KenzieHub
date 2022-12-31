@@ -27,29 +27,30 @@ function Home(){
         </article>
 
         <main>
-          {techs.length <= 0 ?
-          <div>
-            <h2>Loading ...</h2>
-            
-          </div>  
-          :
           <SectionTech>
             <HeadList>
               <h3>Tecnologias</h3>
               <button onClick={buttonModalAdd}>+</button>
             </HeadList>
-            <ul>
-              {techs.map(({id, title, status}) => (
-                <li key={id}>
-                  <h3>{title}</h3>
-                  <div>
-                    <span>{status}</span>
-                    <button><BsFillTrashFill/></button>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </SectionTech>}
+            {
+              techs.length === 0 ?
+              <div className="void-box">
+                Você ainda não possui nenhuma tecnologia
+              </div> 
+              :
+              <ul>
+                {techs.map(({id, title, status}) => (
+                  <li key={id}>
+                    <h3>{title}</h3>
+                    <div>
+                      <span>{status}</span>
+                      <button><BsFillTrashFill/></button>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            }
+          </SectionTech>
         </main>
       </BaseHome>
     </div>
