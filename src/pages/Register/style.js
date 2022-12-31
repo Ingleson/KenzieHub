@@ -8,7 +8,7 @@ export const BaseRegisterStyled = styled.div`
   flex-direction: column;
 
   width: 100%;
-  height: 110vh;
+  height: 120vh;
 
   background-color: #121212;
 
