@@ -26,8 +26,9 @@ function Providers({ children }) {
       setTechs(response.data.user.techs)
       navigate('/home', {replace: true});
     })
-    .catch(() => 
+    .catch(() => {
       toast.error('Email ou/e senha incorreto!')
+    }
     );
   };
 
@@ -47,10 +48,10 @@ function Providers({ children }) {
         navigate('/', {replace: true});
       }, 3000)
     })
-    .catch(err => 
-      console.log(err),
+    .catch((err) => {
+      console.log(err)
       toast.error('Ops, algo deu errado')
-      );
+    });
   };
 
   const redirectToLogin = () => {
